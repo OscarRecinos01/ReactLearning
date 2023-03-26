@@ -3,7 +3,7 @@ import "./ExpenseForm.css"
 
 function ExpenseForm(props) {
     const [enteredTitle, setEnteredTitle] = useState("");
-    const [enteredAmount, setEnteredAmount] = useState("");
+    const [enteredAmount, setEnteredAmount] = useState("0");
     const [enteredDate, setEnteredDate] = useState("");
 
     // const [userInput, setUserInput] = useState({
@@ -53,13 +53,11 @@ function ExpenseForm(props) {
 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            price: +enteredAmount,
             date :new Date(enteredDate)
         }
 
         props.onSaveExpenseData(expenseData); 
-
-        console.log(expenseData);
         setEnteredAmount("")
         setEnteredDate("")
         setEnteredTitle("")
@@ -85,7 +83,7 @@ function ExpenseForm(props) {
                 </div>
             </div>
             <div className='new-expense__actions'>
-                <input type='submit' />
+                <input  type='submit' />
             </div>
         </form>
     )
